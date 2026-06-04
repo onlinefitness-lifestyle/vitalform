@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ONLINE VITAL FITNESS</title>
     <style>
-        /* Import a fun, modern font */
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap');
 
         * {
@@ -13,157 +12,415 @@
             padding: 0;
             box-sizing: border-box;
             font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
         }
 
         body {
-            background-color: #fff5f8; /* Soft pink-tinted background */
+            background-color: #fff5f8;
             color: #333;
         }
 
-        /* Creative Pink & Gold Header */
+        /* Navigation Bar */
+        nav {
+            background: #ffffff;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        nav .logo {
+            color: #ff1493;
+            font-weight: 800;
+            font-size: 1.4rem;
+        }
+
+        nav .logo span {
+            color: #ffd700;
+            text-shadow: 1px 1px 0px #ff1493;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        nav ul a {
+            text-decoration: none;
+            color: #555;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+
+        nav ul a:hover {
+            color: #ff1493;
+        }
+
+        /* Creative Pink & Gold Header / Hero Combo */
         header {
-            background: linear-gradient(135deg, #ff4a85 0%, #ff1493 100%);
-            padding: 25px 20px;
+            background: linear-gradient(135deg, rgba(255, 74, 133, 0.9) 0%, rgba(255, 20, 147, 0.9) 100%), 
+                        url('https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=1920') center/cover no-repeat;
+            padding: 100px 20px;
             text-align: center;
-            border-bottom: 6px solid #ffd700; /* Vibrant Gold Border */
+            border-bottom: 6px solid #ffd700;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            color: white;
         }
 
         header h1 {
-            color: #ffffff;
-            font-size: 2.5rem;
+            font-size: 3.5rem;
             font-weight: 800;
             letter-spacing: 2px;
-            text-shadow: 2px 2px 0px #ffd700, 4px 4px 0px rgba(0,0,0,0.15); /* Gold text shadow shadow */
-            display: inline-block;
+            text-shadow: 3px 3px 0px #ffd700, 5px 5px 0px rgba(0,0,0,0.2);
+            margin-bottom: 20px;
         }
 
-        /* Hero / Welcome Section */
-        .hero {
-            text-align: center;
-            padding: 60px 20px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .hero h2 {
-            font-size: 2.2rem;
-            color: #ff1493;
-            margin-bottom: 15px;
-        }
-
-        .hero p {
-            font-size: 1.1rem;
-            color: #666;
-            line-height: 1.6;
-            margin-bottom: 30px;
+        header p {
+            font-size: 1.3rem;
+            max-width: 600px;
+            margin: 0 auto 30px auto;
+            font-weight: 400;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
         }
 
         /* Fun, Pop-out Call to Action Button */
         .cta-btn {
-            background: #ffd700; /* Gold */
-            color: #ff1493; /* Pink text */
-            padding: 15px 35px;
+            background: #ffd700;
+            color: #ff1493;
+            padding: 15px 40px;
             font-size: 1.2rem;
             font-weight: 600;
             border: none;
             border-radius: 50px;
             cursor: pointer;
-            box-shadow: 0 5px 0px #d4af37, 0 8px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 0px #d4af37, 0 8px 15px rgba(0,0,0,0.2);
             transition: all 0.2s ease;
+            text-decoration: none;
+            display: inline-block;
         }
 
         .cta-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 7px 0px #d4af37, 0 10px 20px rgba(0,0,0,0.15);
+            box-shadow: 0 7px 0px #d4af37, 0 10px 20px rgba(0,0,0,0.25);
         }
 
-        .cta-btn:active {
-            transform: translateY(3px);
-            box-shadow: 0 2px 0px #d4af37;
+        /* Section Styling */
+        section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            color: #ff1493;
+            margin-bottom: 40px;
+            position: relative;
+            display: inline-block;
+        }
+
+        section h2::after {
+            content: '';
+            width: 60%;
+            height: 4px;
+            background: #ffd700;
+            position: absolute;
+            bottom: -10px;
+            left: 20%;
+            border-radius: 2px;
         }
 
         /* Feature Cards Section */
-        .features {
+        .features-grid {
             display: flex;
             justify-content: center;
-            gap: 25px;
+            gap: 30px;
             flex-wrap: wrap;
-            padding: 20px;
-            max-width: 1000px;
-            margin: 0 auto 60px auto;
+            margin-top: 20px;
         }
 
         .card {
             background: white;
             border: 3px solid #ff4a85;
             border-radius: 20px;
-            padding: 30px;
-            width: 280px;
-            text-align: center;
-            box-shadow: 5px 5px 0px #ffd700; /* Creative gold offset shadow */
-            transition: transform 0.2s;
+            overflow: hidden;
+            width: 320px;
+            text-align: left;
+            box-shadow: 6px 6px 0px #ffd700;
+            transition: transform 0.3s;
         }
 
         .card:hover {
+            transform: translateY(-5px) scale(1.02);
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 25px;
+        }
+
+        .card-content h3 {
+            color: #ff1493;
+            margin-bottom: 10px;
+            font-size: 1.4rem;
+        }
+
+        /* Interactive BMI Tool Section */
+        .bmi-section {
+            background: white;
+            border-radius: 30px;
+            padding: 40px;
+            max-width: 500px;
+            margin: 40px auto;
+            border: 3px solid #ff1493;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #ff1493;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #ff4a85;
+            border-radius: 10px;
+            font-size: 1rem;
+        }
+
+        .calc-btn {
+            background: #ff1493;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.2s;
+        }
+
+        .calc-btn:hover {
+            background: #ff4a85;
+        }
+
+        #bmi-result {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #333;
+        }
+
+        /* Pricing Section */
+        .pricing-grid {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .price-card {
+            background: white;
+            border: 2px solid #eee;
+            border-radius: 20px;
+            padding: 40px 30px;
+            width: 300px;
+            position: relative;
+        }
+
+        .price-card.popular {
+            border: 3px solid #ff1493;
+            box-shadow: 0 10px 25px rgba(255, 20, 147, 0.15);
             transform: scale(1.05);
         }
 
-        .card .icon {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
+        .badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #ffd700;
+            color: #ff1493;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 800;
         }
 
-        .card h3 {
+        .price-card h3 {
+            font-size: 1.6rem;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .price-card .price {
+            font-size: 2.5rem;
+            font-weight: 800;
             color: #ff1493;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .price-card ul {
+            list-style: none;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        .price-card ul li {
+            margin-bottom: 12px;
+            color: #666;
+        }
+
+        .price-card ul li::before {
+            content: '✨ ';
         }
 
         /* Simple Footer */
         footer {
             text-align: center;
-            padding: 20px;
+            padding: 30px;
             background-color: #333;
             color: white;
             font-size: 0.9rem;
+            margin-top: 60px;
         }
     </style>
 </head>
 <body>
 
+    <nav>
+        <div class="logo">VITAL<span>FORM</span></div>
+        <ul>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#bmi">BMI Calculator</a></li>
+            <li><a href="#pricing">Plans</a></li>
+        </ul>
+    </nav>
+
     <header>
         <h1>ONLINE VITAL FITNESS</h1>
+        <p>Your vibrant digital space for lifestyle transformation. We make working out fun, energetic, and completely tailored to your lifestyle goals.</p>
+        <a href="#pricing" class="cta-btn">Claim Your Plan ✨</a>
     </header>
 
     <main>
-        <section class="hero">
-            <h2>Get In Shape, Feel Alive! ✨</h2>
-            <p>Welcome to your vibrant digital space for lifestyle transformation. We make working out fun, accessible, and completely tailored to your lifestyle. Ready to claim your vital form?</p>
-            <button class="cta-btn">Start Your Journey Today</button>
+        <section id="features">
+            <h2>What We Offer</h2>
+            <div class="features-grid">
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=600" alt="Fun Workouts">
+                    <div class="card-content">
+                        <h3>Fun Workouts</h3>
+                        <p>High-energy routines ranging from dance cardio to strength training that keep you smiling while you sweat.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=600" alt="Vital Nutrition">
+                    <div class="card-content">
+                        <h3>Vital Nutrition</h3>
+                        <p>Vibrant, easy-to-follow meal ideas and nutrition guides designed to fuel your everyday lifestyle seamlessly.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=600" alt="Community">
+                    <div class="card-content">
+                        <h3>Active Community</h3>
+                        <p>Surround yourself with a supportive network of individuals striving to reach their health and body goals.</p>
+                    </div>
+                </div>
+            </div>
         </section>
 
-        <section class="features">
-            <div class="card">
-                <div class="icon">💪</div>
-                <h3>Fun Workouts</h3>
-                <p>Energetic routines that keep you motivated and moving every single day.</p>
+        <section id="bmi" style="background-color: #fff0f5;">
+            <h2>Check Your Vitality Metric</h2>
+            <p style="margin-bottom: 20px; color: #666;">Quickly calculate your Body Mass Index (BMI) below to start mapping out your target goals.</p>
+            <div class="bmi-section">
+                <div class="input-group">
+                    <label for="weight">Weight (kg):</label>
+                    <input type="number" id="weight" placeholder="e.g. 70">
+                </div>
+                <div class="input-group">
+                    <label for="height">Height (cm):</label>
+                    <input type="number" id="height" placeholder="e.g. 175">
+                </div>
+                <button class="calc-btn" onclick="calculateBMI()">Calculate BMI</button>
+                <div id="bmi-result">Your result will show here!</div>
             </div>
-            <div class="card">
-                <div class="icon">🥗</div>
-                <h3>Vital Nutrition</h3>
-                <p>Healthy, vibrant, and delicious lifestyle habits built for long-term success.</p>
-            </div>
-            <div class="card">
-                <div class="icon">💖</div>
-                <h3>Active Community</h3>
-                <p>Connect with supportive people all looking to reach their peak shape.</p>
+        </section>
+
+        <section id="pricing">
+            <h2>Choose Your Path</h2>
+            <div class="pricing-grid">
+                <div class="price-card">
+                    <h3>Starter Spark</h3>
+                    <div class="price">$0<span style="font-size: 1rem; color: #888;">/forever</span></div>
+                    <ul>
+                        <li>Access to 5 basic workouts</li>
+                        <li>Weekly hydration tracker</li>
+                        <li>Community forum access</li>
+                    </ul>
+                    <button class="calc-btn" style="background: #333;">Get Started</button>
+                </div>
+                <div class="price-card popular">
+                    <div class="badge">MOST POPULAR</div>
+                    <h3>Vital Glow</h3>
+                    <div class="price">$19<span style="font-size: 1rem; color: #888;">/month</span></div>
+                    <ul>
+                        <li>Unlimited live workout streams</li>
+                        <li>Custom pink & gold meal plans</li>
+                        <li>1-on-1 monthly goal check-in</li>
+                        <li>Progress analytics dashboard</li>
+                    </ul>
+                    <button class="calc-btn">Join the Glow</button>
+                </div>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2026 ONLINE VITAL FITNESS. All rights reserved.</p>
+        <p>&copy; 2026 ONLINE VITAL FITNESS. Built with passion for healthy lifestyles. All rights reserved.</p>
     </footer>
 
+    <script>
+        function calculateBMI() {
+            const weight = parseFloat(document.getElementById('weight').value);
+            const height = parseFloat(document.getElementById('height').value) / 100; // Convert cm to meters
+
+            if (isNaN(weight) || isNaN(height) || height <= 0 || weight <= 0) {
+                document.getElementById('bmi-result').innerHTML = "❌ Please enter valid numbers!";
+                return;
+            }
+
+            const bmi = (weight / (height * height)).toFixed(1);
+            let status = "";
+
+            if (bmi < 18.5) status = "Underweight 🌿";
+            else if (bmi >= 18.5 && bmi < 25) status = "Normal Weight ✨ (Looking Vital!)";
+            else if (bmi >= 25 && bmi < 30) status = "Overweight 💪 (Ready to Shape Up)";
+            else status = "Obese 🏋️‍♀️ (Time for Action!)";
+
+            document.getElementById('bmi-result').innerHTML = `Your BMI is <strong>${bmi}</strong> - ${status}`;
+        }
+    </script>
 </body>
 </html>
