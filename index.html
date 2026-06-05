@@ -88,7 +88,7 @@
             text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
         }
 
-        /* Fun, Pop-out Call to Action Button */
+        /* Call to Action Button */
         .cta-btn {
             background: #ffd700;
             color: #ff1493;
@@ -136,13 +136,13 @@
             border-radius: 2px;
         }
 
-        /* Feature Cards Section */
+        /* Feature Cards Grid */
         .features-grid {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
             margin-top: 20px;
+            padding: 10px;
         }
 
         .card {
@@ -150,30 +150,45 @@
             border: 3px solid #ff4a85;
             border-radius: 20px;
             overflow: hidden;
-            width: 320px;
             text-align: left;
             box-shadow: 6px 6px 0px #ffd700;
-            transition: transform 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
         }
 
         .card:hover {
-            transform: translateY(-5px) scale(1.02);
+            transform: translateY(-8px);
+            box-shadow: 10px 10px 0px #ffd700;
         }
 
         .card img {
             width: 100%;
-            height: 200px;
+            height: 220px;
             object-fit: cover;
         }
 
         .card-content {
             padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .card-content h3 {
             color: #ff1493;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card-content p {
+            color: #555;
+            font-size: 0.95rem;
+            line-height: 1.6;
         }
 
         /* Interactive BMI Tool Section */
@@ -247,7 +262,7 @@
     <nav>
         <div class="logo">VITAL<span>FORM</span></div>
         <ul>
-            <li><a href="#features">Features</a></li>
+            <li><a href="#features">Our Programs</a></li>
             <li><a href="#bmi">BMI Calculator</a></li>
             <li><a href="#pricing">Plans</a></li>
         </ul>
@@ -256,34 +271,62 @@
     <header>
         <h1>ONLINE VITAL FITNESS</h1>
         <p>Your vibrant digital space for lifestyle transformation. We make working out fun, energetic, and completely tailored to your lifestyle goals.</p>
-        <a href="#pricing" class="cta-btn">Explore Paths ✨</a>
+        <a href="#features" class="cta-btn">Explore Programs ✨</a>
     </header>
 
     <main>
         <section id="features">
-            <h2>What We Offer</h2>
+            <h2>Our Signature Programs</h2>
             <div class="features-grid">
+                
                 <div class="card">
-                    <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=600" alt="Fun Workouts">
+                    <img src="https://images.unsplash.com/photo-1518310383802-640c2de311b2?q=80&w=600" alt="Fat-Burning Blast">
                     <div class="card-content">
-                        <h3>Fun Workouts</h3>
-                        <p>High-energy routines ranging from dance cardio to strength training that keep you smiling while you sweat.</p>
+                        <h3>Fat-Burning Blast 🌋</h3>
+                        <p>High-intensity, torching cardio sessions designed to maximize your energy output, boost metabolism, and shred fat fast.</p>
                     </div>
                 </div>
+
                 <div class="card">
-                    <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=600" alt="Vital Nutrition">
+                    <img src="https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?q=80&w=600" alt="Online Coaching">
                     <div class="card-content">
-                        <h3>Vital Nutrition</h3>
-                        <p>Vibrant, easy-to-follow meal ideas and nutrition guides designed to fuel your everyday lifestyle seamlessly.</p>
+                        <h3>1-on-1 Online Coaching 🎯</h3>
+                        <p>Get personalized guidance, custom digital workout adjustments, and daily accountability directly from dedicated experts.</p>
                     </div>
                 </div>
+
                 <div class="card">
-                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=600" alt="Community">
+                    <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=600" alt="Routine Programs">
                     <div class="card-content">
-                        <h3>Active Community</h3>
-                        <p>Surround yourself with a supportive network of individuals striving to reach their health and body goals.</p>
+                        <h3>Daily Routine Builders 📅</h3>
+                        <p>Ditch the guesswork. Structured calendar programs that seamlessly embed morning and evening health habits into your busy life.</p>
                     </div>
                 </div>
+
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?q=80&w=600" alt="Healthy Counseling">
+                    <div class="card-content">
+                        <h3>Healthy Counseling 🌿</h3>
+                        <p>Holistic consultations focused on mental wellness, behavioral transformation, balanced nutrition, and lifestyle longevity.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?q=80&w=600" alt="Strength & Sculpt">
+                    <div class="card-content">
+                        <h3>Strength & Sculpt 💪</h3>
+                        <p>Build lean muscle definition and functional core power using dynamic resistance training designed for all levels.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=600" alt="Mindful Mobility">
+                    <div class="card-content">
+                        <h3>Mindful Mobility & Yoga 🧘‍♀️</h3>
+                        <p>Enhance your flexibility, reduce post-workout soreness, and realign your mind with refreshing stretch flows.</p>
+                    </div>
+                </div>
+
             </div>
         </section>
 
