@@ -231,70 +231,6 @@
             color: #333;
         }
 
-        /* Pricing Section */
-        .pricing-grid {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-        }
-
-        .price-card {
-            background: white;
-            border: 2px solid #eee;
-            border-radius: 20px;
-            padding: 40px 30px;
-            width: 300px;
-            position: relative;
-        }
-
-        .price-card.popular {
-            border: 3px solid #ff1493;
-            box-shadow: 0 10px 25px rgba(255, 20, 147, 0.15);
-            transform: scale(1.05);
-        }
-
-        .badge {
-            position: absolute;
-            top: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #ffd700;
-            color: #ff1493;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 800;
-        }
-
-        .price-card h3 {
-            font-size: 1.6rem;
-            color: #333;
-            margin-bottom: 15px;
-        }
-
-        .price-card .price {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: #ff1493;
-            margin-bottom: 20px;
-        }
-
-        .price-card ul {
-            list-style: none;
-            margin-bottom: 30px;
-            text-align: left;
-        }
-
-        .price-card ul li {
-            margin-bottom: 12px;
-            color: #666;
-        }
-
-        .price-card ul li::before {
-            content: '✨ ';
-        }
-
         /* Simple Footer */
         footer {
             text-align: center;
@@ -320,7 +256,7 @@
     <header>
         <h1>ONLINE VITAL FITNESS</h1>
         <p>Your vibrant digital space for lifestyle transformation. We make working out fun, energetic, and completely tailored to your lifestyle goals.</p>
-        <a href="#pricing" class="cta-btn">Claim Your Plan ✨</a>
+        <a href="#pricing" class="cta-btn">Explore Paths ✨</a>
     </header>
 
     <main>
@@ -370,30 +306,7 @@
 
         <section id="pricing">
             <h2>Choose Your Path</h2>
-            <div class="pricing-grid">
-                <div class="price-card">
-                    <h3>Starter Spark</h3>
-                    <div class="price">$0<span style="font-size: 1rem; color: #888;">/forever</span></div>
-                    <ul>
-                        <li>Access to 5 basic workouts</li>
-                        <li>Weekly hydration tracker</li>
-                        <li>Community forum access</li>
-                    </ul>
-                    <button class="calc-btn" style="background: #333;">Get Started</button>
-                </div>
-                <div class="price-card popular">
-                    <div class="badge">MOST POPULAR</div>
-                    <h3>Vital Glow</h3>
-                    <div class="price">$19<span style="font-size: 1rem; color: #888;">/month</span></div>
-                    <ul>
-                        <li>Unlimited live workout streams</li>
-                        <li>Custom pink & gold meal plans</li>
-                        <li>1-on-1 monthly goal check-in</li>
-                        <li>Progress analytics dashboard</li>
-                    </ul>
-                    <button class="calc-btn">Join the Glow</button>
-                </div>
-            </div>
+            <p style="color: #666; font-style: italic; margin-top: 20px;">Exciting custom fitness plans coming soon! Stay tuned.</p>
         </section>
     </main>
 
@@ -404,7 +317,7 @@
     <script>
         function calculateBMI() {
             const weight = parseFloat(document.getElementById('weight').value);
-            const height = parseFloat(document.getElementById('height').value) / 100; // Convert cm to meters
+            const height = parseFloat(document.getElementById('height').value) / 100;
 
             if (isNaN(weight) || isNaN(height) || height <= 0 || weight <= 0) {
                 document.getElementById('bmi-result').innerHTML = "❌ Please enter valid numbers!";
